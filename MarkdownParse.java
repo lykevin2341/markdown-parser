@@ -26,6 +26,10 @@ public class MarkdownParse {
             		break;
             	}
             }
+            if(openBracket == -1 && closeBracket == -1 && openParen == -1 && closeParen == -1){
+                System.out.println("invalid input: not a link");
+                break;
+            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }

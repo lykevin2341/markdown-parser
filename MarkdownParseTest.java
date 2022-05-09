@@ -1,12 +1,11 @@
-import static org.junit.Assert.assertEquals;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.*;
 
 public class MarkdownParseTest {
 
@@ -70,6 +69,18 @@ public class MarkdownParseTest {
 		toReturn.add("second-test-website");
 		try {
 			assertEquals(toReturn, MarkdownParse.getLinks(Files.readString(Path.of(System.getProperty("user.dir") + File.separator + "test-file5.md"))));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test 
+	public void testMarkdownFileSix() {
+		ArrayList<String> toReturn = new ArrayList<>();
+		toReturn.add("www.twitter.com");
+		toReturn.add("www.google.com");
+		try {
+			assertEquals(toReturn, MarkdownParse.getLinks(Files.readString(Path.of(System.getProperty("user.dir") + File.separator + "test-file6.md"))));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
