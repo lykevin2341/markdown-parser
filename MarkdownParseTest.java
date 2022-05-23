@@ -86,4 +86,37 @@ public class MarkdownParseTest {
 		}
 	}
 	
+	@Test
+	public void testLab4Snippet1() throws IOException{
+		Path pathOfSnip = Path.of("./lab4snippet1.md");
+		String testerFile = Files.readString(pathOfSnip);
+		ArrayList<String> expectedList = new ArrayList<>();
+		expectedList.add("url.com"));
+		expectedList.add("`google.com");
+		expectedList.add("google.com");
+		expectedList.add("ucsd.edu");
+		assertEquals(expectedList, MarkdownParse.getLinks(testerFile));
+	}
+
+	@Test
+	public void testLab4Snippet2() throws IOException{
+		Path pathOfSnip = Path.of("./lab4snippet2.md");
+		String testerFile = Files.readString(pathOfSnip);
+		ArrayList<String> expectedList = new ArrayList<>();
+		expectedList.add("a.com");
+		expectedList.add("a.com(())");
+		expectedList.add("example.com");
+		assertEquals(expectedList, MarkdownParse.getLinks(testerFile));
+	}
+
+	@Test
+	public void testLab4Snippet3() throws IOException{
+		Path pathOfSnip = Path.of("./lab4snippet3.md");
+		String testerFile = Files.readString(pathOfSnip);
+		ArrayList<String> expectedList = new ArrayList<>();
+		expectedList.add("https://www.twitter.com");
+		expectedList.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
+		expectedList.add("https://cse.ucsd.edu");
+		assertEquals(expectedList, MarkdownParse.getLinks(testerFile));
+	}
 }
