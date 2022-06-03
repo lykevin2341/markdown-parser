@@ -91,7 +91,6 @@ public class MarkdownParseTest {
 		Path pathOfSnip = Path.of("./lab4snippet1.md");
 		String testerFile = Files.readString(pathOfSnip);
 		ArrayList<String> expectedList = new ArrayList<>();
-		expectedList.add("url.com");
 		expectedList.add("`google.com");
 		expectedList.add("google.com");
 		expectedList.add("ucsd.edu");
