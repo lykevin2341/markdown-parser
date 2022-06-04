@@ -11,3 +11,7 @@ test: MarkdownParseTest.class
 
 test-debug: MarkdownParseTest.class
 	jdb -classpath $(CLASSPATH) org.junit.runner.JUnitCore MarkdownParseTest
+
+make TryCommonMark.class
+	javac -g -cp lib/*:. TryCommonMark.java
+	java -cp "lib/*:." TryCommonMark
